@@ -3,11 +3,18 @@ const urlByCategory = 'https://api.chucknorris.io/jokes/random?category={categor
 const urlCategories = 'https://api.chucknorris.io/jokes/categories';
 const urlByText = 'https://api.chucknorris.io/jokes/search?query={query}';
 
-const jokeButton = document.querySelector('button');
+const form = document.getElementById('form');
 const joke = document.querySelector('p');
 
-jokeButton.onclick = () => {
-  fetch(urlRandom)
+function getJoke(url) {
+  fetch(url)
     .then(response => response.json())
     .then(data => {joke.innerHTML = data.value})
 }
+
+function formSubmit(event) {
+  getJoke(urlRandom);
+  event.preventDefault();
+}
+
+form.addEventListener('submit', formSubmit);

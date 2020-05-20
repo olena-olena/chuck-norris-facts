@@ -6,9 +6,26 @@
     <link rel="icon" href="assets/application.svg" type="image/svg+xml">
   </head>
   <body>
+
     <h1>Hey!</h1>
-    <p>...</p>
-    <button type="button" name="button">Get a joke</button>
+    <h2>Let’s try to find a joke for you:</h2>
+
+    <form id="form">
+      <input type="radio" id="random" name="jokeType" value="random">
+      <label for="random">Random</label><br>
+      <input type="radio" id="category" name="jokeType" value="category">
+      <label for="category">From categories</label><br>
+      <input type="radio" id="text" name="jokeType" value="text">
+      <label for="text">Search</label><br>
+      <br>
+      <input type="submit" id="getJoke" value="Get a joke">
+    </form>
+
+    <div class="">
+      <p>...</p>
+    </div>
+
+
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
