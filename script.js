@@ -6,31 +6,30 @@ const radioRandom = document.getElementById('random');
 const categoriesList = document.getElementById('categories-list');
 const joke = document.querySelector('p');
 
-
 fetch('https://api.chucknorris.io/jokes/categories')
   .then(response => response.json())
-  .then(data => {
-    categoriesList.innerHTML = '';
-    for (let i in data) {
-      let cat = document.createElement('label');
-      cat.for = data[i];
-      cat.innerHTML = data[i];
-      categoriesList.appendChild(cat);
-
-      let box = document.createElement('input');
-      box.type = 'checkbox';
-      box.id = data[i];
-      box.value = data[i];
-      // box.style = "visibility: hidden
-      cat.appendChild(box);
-
-    }
-  });
+  .then(data => makeCategoriesList(data))
 
 form.addEventListener('submit', formSubmit);
 radioCategory.addEventListener('change', changeCategory);
 radioRandom.addEventListener('change', changeCategory);
 
+function makeCategoriesList(data) {
+  categoriesList.innerHTML = '';
+  for (let i in data) {
+    let cat = document.createElement('label');
+    cat.for = data[i];
+    cat.innerHTML = data[i];
+    categoriesList.appendChild(cat);
+
+    let box = document.createElement('input');
+    box.type = 'checkbox';
+    box.id = data[i];
+    box.value = data[i];
+    // box.style = "visibility: hidden
+    cat.appendChild(box);
+  }
+};
 
 function changeCategory(event) {
   // if (event.target.id == 'random') {}
