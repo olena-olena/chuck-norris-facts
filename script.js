@@ -1,6 +1,3 @@
-const urlRandom = 'https://api.chucknorris.io/jokes/random';
-const urlByCategory = 'https://api.chucknorris.io/jokes/random?category={category}';
-const urlCategories = 'https://api.chucknorris.io/jokes/categories';
 const urlByText = 'https://api.chucknorris.io/jokes/search?query={query}';
 
 const form = document.getElementById('form');
@@ -10,7 +7,7 @@ const categoriesList = document.getElementById('categories-list');
 const joke = document.querySelector('p');
 
 
-fetch(urlCategories)
+fetch('https://api.chucknorris.io/jokes/categories')
   .then(response => response.json())
   .then(data => {
     categoriesList.innerHTML = '';
@@ -40,17 +37,18 @@ function changeCategory(event) {
   categoriesList.classList.toggle('hidden');
 }
 
-function getRandomJoke(url=urlRandom) {
-  fetch(url)
+function getRandomJoke() {
+  fetch('https://api.chucknorris.io/jokes/random')
     .then(response => response.json())
     .then(data => {joke.innerHTML = data.value})
 };
 
 function getCategoryJoke(lst) {
-  console.log(lst);
+  fetch(`https://api.chucknorris.io/jokes/random?category=${lst}`)
+    .then(response => response.json())
+    .then(data => {joke.innerHTML = data.value})
+
 }
-
-
 
 function formSubmit(event) {
   event.preventDefault();
@@ -59,7 +57,7 @@ function formSubmit(event) {
   let checks = [];
   let reqCategories = [];
 
-  for (input of event.target.querySelectorAll('input')) { //tegNAme
+  for (input of event.target.getElementsByTagName('input')) { //tegNAme
     // console.log(input.id, input.checked);
     inputs.push(input.id);
     checks.push(input.checked);
@@ -73,6 +71,7 @@ function formSubmit(event) {
         reqCategories.push(inputs[i]);
       }
     }
-    getCategoryJoke(reqCategories);
+    (reqCategories.length) ? getCategoryJoke(reqCategories) :
+      joke.innerHTML = '<em>Please select any categories or switch to random joke</em>';
   }
 };
