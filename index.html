@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Chuck Norris</title>
     <link rel="icon" href="assets/application.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
@@ -15,8 +16,8 @@
       <label for="random">Random</label><br>
       <input type="radio" id="category" name="jokeType" value="category">
       <label for="category">From categories</label><br>
-      <div id="categories-list" >Loading categories...</div>
-      <!-- style="display: none;" -->
+      <div class="hidden" id="categories-list" >Loading categories...</div>
+
       <br>
       <input type="submit" id="getJoke" value="Get a joke">
     </form>

@@ -4,7 +4,8 @@ const urlCategories = 'https://api.chucknorris.io/jokes/categories';
 const urlByText = 'https://api.chucknorris.io/jokes/search?query={query}';
 
 const form = document.getElementById('form');
-const radio = document.getElementById('category');
+const radioCategory = document.getElementById('category');
+const radioRandom = document.getElementById('random');
 const categoriesList = document.getElementById('categories-list');
 const joke = document.querySelector('p');
 
@@ -22,10 +23,20 @@ fetch(urlCategories)
       let cat = document.createElement('label');
       cat.innerHTML = `${data[i]}`;
 
-      categoriesList.appendChild(cat);
-      cat.appendChild(box);
+      categoriesList.appendChild(cat).appendChild(box);
     }
   });
+
+form.addEventListener('submit', formSubmit);
+radioCategory.addEventListener('change', changeCategory);
+radioRandom.addEventListener('change', changeCategory);
+
+
+function changeCategory(event) {
+  // if (event.target.id == 'random') {
+  categoriesList.classList.toggle('hidden')
+
+}
 
 function getJoke(url) {
   fetch(url)
@@ -37,5 +48,3 @@ function formSubmit(event) {
   getJoke(urlRandom);
   event.preventDefault();
 };
-
-form.addEventListener('submit', formSubmit);
