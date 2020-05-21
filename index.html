@@ -11,12 +11,12 @@
     <h2>Let’s try to find a joke for you:</h2>
 
     <form id="form">
-      <input type="radio" id="random" name="jokeType" value="random">
+      <input type="radio" id="random" name="jokeType" value="random" checked>
       <label for="random">Random</label><br>
       <input type="radio" id="category" name="jokeType" value="category">
       <label for="category">From categories</label><br>
-      <input type="radio" id="text" name="jokeType" value="text">
-      <label for="text">Search</label><br>
+      <div id="categories-list" >Loading categories...</div>
+      <!-- style="display: none;" -->
       <br>
       <input type="submit" id="getJoke" value="Get a joke">
     </form>
@@ -24,7 +24,6 @@
     <div class="">
       <p></p>
     </div>
-
 
     <script type="text/javascript" src="script.js"></script>
   </body>
