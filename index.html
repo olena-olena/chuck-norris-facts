@@ -12,17 +12,15 @@
     <h2>Let’s try to find a joke for you:</h2>
 
     <form id="form">
-      <input type="radio" id="random" name="jokeType" value="random" checked>
-      <label for="random">Random</label><br>
-      <input type="radio" id="category" name="jokeType" value="category">
-      <label for="category">From categories</label><br>
+      <input type="radio" name="joke-type" id="random" checked><label for="random">Random</label><br>
+      <input type="radio" name="joke-type" id="category"><label for="category">From categories</label><br>
       <div class="hidden" id="categories-list" >Loading categories...</div>
-
-      <br>
+      <input type="radio" name="joke-type" id="search"><label for="search">Search</label><br>
+      <input type="search" id="search-text" placeholder="Free text search..." class="hidden"><br>
       <input type="submit" id="getJoke" value="Get a joke">
     </form>
 
-    <div class="">
+    <div>
       <p></p>
     </div>
 
