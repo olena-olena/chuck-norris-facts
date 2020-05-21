@@ -12,11 +12,11 @@
     <h2>Let’s try to find a joke for you:</h2>
 
     <form id="form">
-      <input type="radio" name="joke-type" class="radio" id="random" checked><label for="random">Random</label><br>
+      <input type="radio" name="joke-type" class="radio current" id="random" checked><label for="random">Random</label><br>
       <input type="radio" name="joke-type" class="radio" id="category"><label for="category">From categories</label><br>
-      <div class="hidden" id="categories-list" >Loading categories...</div>
+      <!-- hidden --><div class="hidden" id="categories-list" >Loading categories...</div>
       <input type="radio" name="joke-type" class="radio" id="search"><label for="search">Search</label><br>
-      <input type="search" id="search-text" placeholder="Free text search..." class="hidden"><br>
+      <!-- hidden --><input class="hidden" type="search" id="search-field" placeholder="Free text search..."><br>
       <input type="submit" id="getJoke" value="Get a joke">
     </form>
 

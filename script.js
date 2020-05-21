@@ -1,7 +1,6 @@
-const urlByText = 'https://api.chucknorris.io/jokes/search?query={query}';
-
 const form = document.getElementById('form');
-const categoriesList = document.getElementById('categories-list');
+const categoriesList = document.getElementById('categories-list');    // change to querySelector
+const searchField = document.getElementById('search-field');          // change to querySelector
 const joke = document.querySelector('p');
 
 fetch('https://api.chucknorris.io/jokes/categories')
@@ -25,17 +24,25 @@ function makeCategoriesList(data) {
     let box = document.createElement('input');
     box.type = 'checkbox';
     box.id = data[i];
-    box.value = data[i];
+    // box.value = data[i];
     // box.style = "visibility: hidden
     cat.appendChild(box);
   }
 };
 
 function changeCategory(event) {
-  // if (event.target.id == 'random') {}
-  categoriesList.classList.toggle('hidden');
-  console.log('hello');
+  let prev = document.getElementsByClassName('current')[0];
+  let next = event.target;
 
+  prev.classList.toggle('current');
+  next.classList.toggle('current');
+
+  if (prev.id == 'category' || next.id == 'category') {
+    categoriesList.classList.toggle('hidden');
+  }
+  if (prev.id == 'search' || next.id == 'search') {
+    searchField.classList.toggle('hidden');
+  }
 }
 
 function getRandomJoke() {
@@ -48,7 +55,12 @@ function getCategoryJoke(lst) {
   fetch(`https://api.chucknorris.io/jokes/random?category=${lst}`)
     .then(response => response.json())
     .then(data => {joke.innerHTML = data.value})
+};
 
+function getSearchJoke(txt) {
+  fetch(`https://api.chucknorris.io/jokes/search?query=${txt}`)
+    .then(response => response.json())
+    .then(data => {joke.innerHTML = data.value})
 }
 
 function formSubmit(event) {
