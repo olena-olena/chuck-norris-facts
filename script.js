@@ -1,8 +1,6 @@
 const urlByText = 'https://api.chucknorris.io/jokes/search?query={query}';
 
 const form = document.getElementById('form');
-const radioCategory = document.getElementById('category');
-const radioRandom = document.getElementById('random');
 const categoriesList = document.getElementById('categories-list');
 const joke = document.querySelector('p');
 
@@ -11,8 +9,10 @@ fetch('https://api.chucknorris.io/jokes/categories')
   .then(data => makeCategoriesList(data))
 
 form.addEventListener('submit', formSubmit);
-radioCategory.addEventListener('change', changeCategory);
-radioRandom.addEventListener('change', changeCategory);
+
+for (radio of document.getElementsByClassName('radio')) {
+  radio.addEventListener('change', changeCategory);
+}
 
 function makeCategoriesList(data) {
   categoriesList.innerHTML = '';
@@ -34,6 +34,8 @@ function makeCategoriesList(data) {
 function changeCategory(event) {
   // if (event.target.id == 'random') {}
   categoriesList.classList.toggle('hidden');
+  console.log('hello');
+
 }
 
 function getRandomJoke() {
