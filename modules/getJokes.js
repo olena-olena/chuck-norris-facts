@@ -1,16 +1,18 @@
-function getRandomJoke(jokePlace) {
+import { jokePlace } from '../main.js';
+
+function getRandomJoke() {
   fetch('https://api.chucknorris.io/jokes/random')
     .then(response => response.json())
     .then(data => {jokePlace.innerHTML = data.value})
 };
 
-function getCategoryJoke(jokePlace, lst) {
+function getCategoryJoke(lst) {
   fetch(`https://api.chucknorris.io/jokes/random?category=${lst}`)
     .then(response => response.json())
     .then(data => {jokePlace.innerHTML = data.value})
 };
 
-function getSearchJoke(jokePlace, txt) {
+function getSearchJoke(txt) {
   fetch(`https://api.chucknorris.io/jokes/search?query=${txt}`)
     .then(response => response.json())
     .then(data => {
