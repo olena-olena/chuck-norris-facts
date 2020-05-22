@@ -1,7 +1,10 @@
+import { getRandomJoke, getSearchJoke, getCategoryJoke } from './modules/getJokes.js';
+
 const form = document.getElementById('form');
 const categoriesList = document.getElementById('categories-list');    // change to querySelector
 const searchField = document.getElementById('search-field');          // change to querySelector
-const joke = document.querySelector('p');
+// const jokesSection = document.
+const jokePlace = document.querySelector('p');
 
 fetch('https://api.chucknorris.io/jokes/categories')
   .then(response => response.json())
@@ -9,8 +12,14 @@ fetch('https://api.chucknorris.io/jokes/categories')
 
 form.addEventListener('submit', formSubmit);
 
-for (radio of document.getElementsByClassName('radio')) {
+for (const radio of document.getElementsByClassName('radio')) {
   radio.addEventListener('change', changeCategory);
+};
+
+function makeJoke(data) {
+  jokePlace = document.createElement('article');
+  //
+  //
 }
 
 function makeCategoriesList(data) {
@@ -45,30 +54,6 @@ function changeCategory(event) {
   }
 }
 
-function getRandomJoke() {
-  fetch('https://api.chucknorris.io/jokes/random')
-    .then(response => response.json())
-    .then(data => {joke.innerHTML = data.value})
-};
-
-function getCategoryJoke(lst) {
-  fetch(`https://api.chucknorris.io/jokes/random?category=${lst}`)
-    .then(response => response.json())
-    .then(data => {joke.innerHTML = data.value})
-};
-
-function getSearchJoke(txt) {
-  fetch(`https://api.chucknorris.io/jokes/search?query=${txt}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.total) {
-        let index = Math.floor(Math.random()*data.total);
-        joke.innerHTML = data.result[index].value;
-      } else {
-        getRandomJoke();
-      }
-    })
-}
 
 function formSubmit(event) {
   event.preventDefault();
@@ -79,14 +64,14 @@ function formSubmit(event) {
   let checks = [];
   let reqCategories = [];
 
-  for (input of event.target.getElementsByTagName('input')) {
+  for (const input of event.target.getElementsByTagName('input')) {
     // console.log(input.id, input.checked);
     inputs.push(input.id);
     checks.push(input.checked);
   }
 
   if (checks[0]) {
-    getRandomJoke();
+    getRandomJoke(jokePlace);
 
   } else if (checks[1]) {
     for (var i = 2; i < (inputs.length  - 1); i++) {
@@ -95,16 +80,16 @@ function formSubmit(event) {
       }
     }
     if (reqCategories.length) {
-      getCategoryJoke(reqCategories);
+      getCategoryJoke(jokePlace, reqCategories);
     } else {
-      joke.innerHTML = '<em>Please select some categories or switch to random joke</em>';
+      jokePlace.innerHTML = '<em>Please select some categories or switch to random joke</em>';
     }
 
   } else if (checks[checks.length-3]) {
     if (document.getElementById('search-field').value) {
-      getSearchJoke(document.getElementById('search-field').value);
+      getSearchJoke(jokePlace, document.getElementById('search-field').value);
     } else {
-      joke.innerHTML = '<em>Please provide text to search or switch to random joke</em>';
+      jokePlace.innerHTML = '<em>Please provide text to search or switch to random joke</em>';
     }
   }
 };
