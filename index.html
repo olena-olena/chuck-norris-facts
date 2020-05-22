@@ -9,21 +9,34 @@
   </head>
   <body>
 
-    <h1>Hey!</h1>
-    <h2>Let’s try to find a joke for you:</h2>
+    <main>
+      <h1>Hey!</h1>
+      <h2>Let’s try to find a joke for you:</h2>
 
-    <form id="form">
-      <input type="radio" name="joke-type" class="radio current" id="random" checked><label for="random">Random</label><br>
-      <input type="radio" name="joke-type" class="radio" id="category"><label for="category">From categories</label><br>
-      <!-- hidden --><div class="hidden" id="categories-list" >Loading categories...</div>
-      <input type="radio" name="joke-type" class="radio" id="search"><label for="search">Search</label><br>
-      <!-- hidden --><input class="hidden" type="search" id="search-field" placeholder="Free text search..."><br>
-      <input type="submit" id="getJoke" value="Get a joke">
-    </form>
+      <form id="form">
+        <input type="radio" name="joke-type" class="radio current" id="random" checked><label for="random">Random</label><br>
+        <input type="radio" name="joke-type" class="radio" id="category"><label for="category">From categories</label><br>
+        <!-- hidden --><div class="hidden" id="categories-list" >Loading categories...</div>
+        <input type="radio" name="joke-type" class="radio" id="search"><label for="search">Search</label><br>
+        <!-- hidden --><input class="hidden" type="search" id="search-field" placeholder="Free text search..."><br>
+        <input type="submit" id="getJoke" value="Get a joke">
+      </form>
 
-    <div>
-      <p></p>
-    </div>
+      <article class="jokes">
+        <article class="joke new">
+          <em>
+            <p>ID with the link to the joke</p>
+            <p>Joke itself</p>
+            <p>Updated => Time from updated_at till now (from API)</p>
+            <p>Joke caterogy (if exist)</p>
+          </em>
+        </article>
+      </article>
+    </main>
+
+    <section>
+      <!-- favourites -->
+    </section>
 
     <script type="text/javascript" src="script.js"></script>
   </body>
