@@ -13,7 +13,7 @@ fetch('https://api.chucknorris.io/jokes/categories')
 form.addEventListener('submit', formSubmit);
 
 for (const radio of document.getElementsByClassName('radio')) {
-  radio.addEventListener('change', changeCategory);
+  radio.addEventListener('change', changeJokeType);
 };
 
 function makeJoke(data) {
@@ -24,13 +24,13 @@ function makeJoke(data) {
 
 function makeCategoriesList(data) {
   categoriesList.innerHTML = '';
-  for (let i in data) {
+  for (const category of data) {
     let cat = document.createElement('label');
-    cat.innerHTML = data[i];
+    cat.innerHTML = category;
 
     let box = document.createElement('input');
     box.type = 'checkbox';
-    box.id = data[i];
+    box.id = category;
     // box.value = data[i];
     // box.style = "visibility: hidden
 
@@ -39,7 +39,7 @@ function makeCategoriesList(data) {
   }
 };
 
-function changeCategory(event) {
+function changeJokeType(event) {
   let prev = document.getElementsByClassName('current')[0];
   let next = event.target;
 
