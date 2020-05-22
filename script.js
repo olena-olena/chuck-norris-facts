@@ -17,15 +17,15 @@ function makeCategoriesList(data) {
   categoriesList.innerHTML = '';
   for (let i in data) {
     let cat = document.createElement('label');
-    cat.for = data[i];
     cat.innerHTML = data[i];
-    categoriesList.appendChild(cat);
 
     let box = document.createElement('input');
     box.type = 'checkbox';
     box.id = data[i];
     // box.value = data[i];
     // box.style = "visibility: hidden
+
+    categoriesList.appendChild(cat);
     cat.appendChild(box);
   }
 };
@@ -60,17 +60,26 @@ function getCategoryJoke(lst) {
 function getSearchJoke(txt) {
   fetch(`https://api.chucknorris.io/jokes/search?query=${txt}`)
     .then(response => response.json())
-    .then(data => {joke.innerHTML = data.value})
+    .then(data => {
+      if (data.total) {
+        let index = Math.floor(Math.random()*data.total);
+        joke.innerHTML = data.result[index].value;
+      } else {
+        getRandomJoke();
+      }
+    })
 }
 
 function formSubmit(event) {
   event.preventDefault();
 
+  // console.log(event);
+
   let inputs = [];
   let checks = [];
   let reqCategories = [];
 
-  for (input of event.target.getElementsByTagName('input')) { //tegNAme
+  for (input of event.target.getElementsByTagName('input')) {
     // console.log(input.id, input.checked);
     inputs.push(input.id);
     checks.push(input.checked);
@@ -78,13 +87,24 @@ function formSubmit(event) {
 
   if (checks[0]) {
     getRandomJoke();
+
   } else if (checks[1]) {
-    for (var i = 2; i < (inputs.length - 1); i++) {
+    for (var i = 2; i < (inputs.length  - 1); i++) {
       if (checks[i]) {
         reqCategories.push(inputs[i]);
       }
     }
-    (reqCategories.length) ? getCategoryJoke(reqCategories) :
-      joke.innerHTML = '<em>Please select any categories or switch to random joke</em>';
+    if (reqCategories.length) {
+      getCategoryJoke(reqCategories);
+    } else {
+      joke.innerHTML = '<em>Please select some categories or switch to random joke</em>';
+    }
+
+  } else if (checks[checks.length-3]) {
+    if (document.getElementById('search-field').value) {
+      getSearchJoke(document.getElementById('search-field').value);
+    } else {
+      joke.innerHTML = '<em>Please provide text to search or switch to random joke</em>';
+    }
   }
 };
