@@ -1,5 +1,5 @@
 import { jokePlace } from '../main.js';
-import { addToFavourites } from './favourites.js';
+import { toggleFavourites } from './favourites.js';
 
 export function makeJoke(data) {
 
@@ -16,7 +16,7 @@ export function makeJoke(data) {
   let heart = document.createElement('button');
   heart.type = "button";
   heart.title = "add to favourites";
-  heart.addEventListener('click', addToFavourites);
+  heart.addEventListener('click', toggleFavourites);
 
   let link = document.createElement('address');
   link.classList = 'joke-link';
