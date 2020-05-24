@@ -4,6 +4,10 @@ export function makeJoke(data) {
 
   if (data.categories.length > 1) {alert('attention: multiple categories');}
 
+  if (jokePlace.innerHTML.includes('<em>')) {
+    jokePlace.innerHTML = '';
+  };
+
   let joke = document.createElement('article');
   joke.classList = 'joke'
   joke = jokePlace.insertBefore(joke, jokePlace.firstChild);
@@ -26,12 +30,14 @@ export function makeJoke(data) {
   upd.classList = 'joke-upd';
   upd.innerHTML = `Last update: ${hours} hours ago`;
 
-  let cats = document.createElement('div');
-  cats.classList = 'category joke-cats';
-  cats.innerHTML = data.categories;
-
   joke.appendChild(link);
   joke.appendChild(p);
   joke.appendChild(upd);
-  joke.appendChild(cats);
+
+  if (data.categories.length > 0) {
+    let cats = document.createElement('span');
+    cats.classList = 'category joke-cats';
+    cats.innerHTML = data.categories;
+    joke.appendChild(cats);
+  }
 }

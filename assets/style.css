@@ -5,6 +5,7 @@ body {
 
 header {
   margin: 40px 0 78px;
+  line-height: 28px;
 }
 
 header a {
@@ -38,12 +39,12 @@ address {
 
 .radio {
   cursor: pointer;
-  margin: 0 10px 10px 0;
+  margin: 10px 10px 0px 0;
   color: #ABABAB;
 }
 
 .selection-level {
-  margin: 10px 0 20px;
+  margin-top: 10px;
 }
 
 .category {
@@ -69,6 +70,16 @@ address {
 
 .submit {
   cursor: pointer;
+  margin-top: 20px;
+  width: 152px;
+  height: 42px;
+  background: linear-gradient(92.01deg, #8EA7FF 0%, #7291FF 100%);
+  border: 0px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #FFFFFF;
 }
 
 .joke {
@@ -97,15 +108,23 @@ address {
 }
 
 .joke-cats {
-
+  background: #FFFFFF;
+  font-size: 10px;
+  line-height: 14px;
+  color: #333333;
+  margin: 0;
+  position: absolute;
+  right: 180px;
 }
 
 .auxiliary {
   color: #ABABAB;
+  font-size: 18px;
 }
 
 #search-field {
   height: 42px;
+  width: 100%;
   border: 2px solid #333333;
   padding: 10px 15px;
   /* box-sizing: border-box; */
