@@ -3,6 +3,23 @@ body {
   padding-left: 40px;
 }
 
+address {
+  font-style: normal;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .hidden {
   display: none;
+}
+
+.submit {
+  cursor: pointer;
+}
+
+.auxiliary {
+  color: grey;
 }
