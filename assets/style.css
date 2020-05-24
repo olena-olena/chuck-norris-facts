@@ -1,0 +1,116 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 0 140px;
+}
+
+header {
+  margin: 40px 0 78px;
+}
+
+header a {
+  font-size: 20px;
+  color: #333333;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+h1, h2 {
+  height: 44px;
+  margin: 0;
+}
+
+form {
+  margin: 40px 0 40px;
+}
+
+label {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+address {
+  font-style: normal;
+}
+
+.hidden {
+  display: none;
+}
+
+.radio {
+  cursor: pointer;
+  margin: 0 10px 10px 0;
+  color: #ABABAB;
+}
+
+.selection-level {
+  margin: 10px 0 20px;
+}
+
+.category {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border: 2px solid #f0f0f0;
+  box-sizing: content-box;
+  border-radius: 6px;
+  padding: 6px 15px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ABABAB;
+}
+
+.selected {
+  background: #f0f0f0;
+  color: #333333;
+}
+
+.submit {
+  cursor: pointer;
+}
+
+.joke {
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 20px;
+}
+
+.joke-link {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  color: #ABABAB;
+}
+
+.joke-text {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.joke-upd {
+  font-size: 10px;
+  line-height: 14px;
+  color: #ABABAB;
+}
+
+.joke-cats {
+
+}
+
+.auxiliary {
+  color: #ABABAB;
+}
+
+#search-field {
+  height: 42px;
+  border: 2px solid #333333;
+  padding: 10px 15px;
+  /* box-sizing: border-box; */
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ABABAB;
+  }
