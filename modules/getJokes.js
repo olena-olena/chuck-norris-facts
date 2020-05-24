@@ -1,15 +1,15 @@
-import { jokePlace } from '../main.js';
+import { makeJoke } from './makeJoke.js';
 
 function getRandomJoke() {
   fetch('https://api.chucknorris.io/jokes/random')
     .then(response => response.json())
-    .then(data => {jokePlace.innerHTML = data.value})
+    .then(data => makeJoke(data))
 };
 
 function getCategoryJoke(lst) {
   fetch(`https://api.chucknorris.io/jokes/random?category=${lst}`)
     .then(response => response.json())
-    .then(data => {jokePlace.innerHTML = data.value})
+    .then(data => makeJoke(data))
 };
 
 function getSearchJoke(txt) {
@@ -18,9 +18,9 @@ function getSearchJoke(txt) {
     .then(data => {
       if (data.total) {
         let index = Math.floor(Math.random()*data.total);
-        jokePlace.innerHTML = data.result[index].value;
+        makeJoke(data.result[index]);
       } else {
-        getRandomJoke(jokePlace);
+        getRandomJoke();
       }
     })
 }

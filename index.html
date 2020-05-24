@@ -26,22 +26,16 @@
       <form id="form">
         <input type="radio" name="joke-type" class="radio current" id="random" checked><label for="random">Random</label><br>
         <input type="radio" name="joke-type" class="radio" id="category"><label for="category">From categories</label><br>
-        <!-- hidden --><div class="hidden" id="categories-list" >Loading categories...</div>
+        <!-- hidden elements section --><div class="hidden" id="categories-list" >Loading categories...</div>
         <input type="radio" name="joke-type" class="radio" id="search"><label for="search">Search</label><br>
-        <!-- hidden --><input class="hidden" type="search" id="search-field" placeholder="Free text search..."><br>
-        <input type="submit" class="submit" id="getJoke" value="Get a joke">
+        <!-- hidden elements section --><input class="hidden" id="search-field" type="search" placeholder="Free text search..."><br>
+        <input type="submit" id="getJoke" class="submit" value="Get a joke">
       </form>
 
       <article class="jokes">
-        <article class="joke new">
-          <em>
-            <p class="auxiliary">ID with the link to the joke</p>
-            <p class="auxiliary">Joke itself</p>
-            <p class="auxiliary">Updated => Time from updated_at till now (from API)</p>
-            <p class="auxiliary">Joke caterogy (if exist)</p>
-          </em>
-        </article>
+        <!-- jokes -->
       </article>
+
     </main>
 
     <section>
