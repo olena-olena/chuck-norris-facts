@@ -18,4 +18,5 @@ function makeJoke(data) {
   jokePlace = document.createElement('article');
   //
   //
+  // python -m SimpleHTTPServer 
 }
