@@ -71,7 +71,7 @@ button {
   margin-bottom: 10px;
   width: 20px;
   height: 17px;
-  border: 1px solid white;
+  border: 2px solid salmon;
 }
 
 .hidden {
@@ -146,6 +146,7 @@ button {
 }
 
 .fav-icon {
+  backgroung-color: salmon;
   background-image: url('./assets/icons/heart_1.svg');
 }
 
