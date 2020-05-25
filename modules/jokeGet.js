@@ -1,4 +1,5 @@
 import { makeJoke } from './jokeDisplay.js';
+import { makeFavJoke } from './favDisplay.js';
 
 function getRandomJoke() {
   fetch('https://api.chucknorris.io/jokes/random')
@@ -25,7 +26,14 @@ function getSearchJoke(txt) {
     })
 }
 
+function getJokeByLink(url) {
+  fetch(url)
+  .then(response => response.json())
+  .then(data => makeFavJoke(data))
+}
+
 export {
+  getJokeByLink,
   getRandomJoke,
   getSearchJoke,
   getCategoryJoke

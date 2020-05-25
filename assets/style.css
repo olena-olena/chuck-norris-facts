@@ -1,23 +1,33 @@
-html, body {
+html {
+  height: auto;
+  min-height: inherit;
+}
+
+body {
   font-family: 'Roboto', sans-serif;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   margin: 0;
   min-height: 100vh;
 }
 
 main {
-  float:left;
+  /* display: run-in; */
+  margin: 0;
+  /* float:left; */
   width: 70%;
+  min-width: 380px;
   padding: 0 120px;
 }
 
 section {
-  float:right;
+  /* float:right;
   position: absolute;
-  right: 0;
+  right: 0; */
   width: 30%;
   min-width: 380px;
-  min-height: 100vh;
+  height: inherit;
+  /* min-height: 100vh; */
   padding: 40px;
   background: #f0f0f0;
   color: #ABABAB;
@@ -70,7 +80,6 @@ button {
 
 .header {
   font-size: 20px;
-  margin-bottom: 60px;
 }
 
 .radio {
@@ -123,6 +132,7 @@ button {
   border-radius: 20px;
   padding: 40px;
   margin-bottom: 20px;
+  width: inherit;
 }
 
 .fav-icon {

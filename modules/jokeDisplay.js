@@ -47,4 +47,4 @@ export function makeJoke(data) {
     cats.innerHTML = data.categories;
     joke.appendChild(cats);
   }
-}
+};
