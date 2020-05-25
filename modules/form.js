@@ -12,8 +12,7 @@ function makeCategoriesList(data) {
     let box = document.createElement('input');
     box.type = 'checkbox';
     box.id = category;
-    // box.value = data[i];
-    box.style = 'display: none';
+    box.classList = 'hidden';
 
     box.addEventListener('change', (event) => {
       event.target.parentNode.classList.toggle('selected')

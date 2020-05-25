@@ -1,4 +1,5 @@
 import { jokePlace } from '../main.js';
+import { toggleFavourites } from './favToggle.js';
 
 export function makeJoke(data) {
 
@@ -9,8 +10,13 @@ export function makeJoke(data) {
   };
 
   let joke = document.createElement('article');
-  joke.classList = 'joke'
+  joke.classList = 'joke';
   joke = jokePlace.insertBefore(joke, jokePlace.firstChild);
+
+  let heart = document.createElement('button');
+  heart.type = "button";
+  heart.title = "add to favourites";
+  heart.addEventListener('click', toggleFavourites);
 
   let link = document.createElement('address');
   link.classList = 'joke-link';
@@ -26,10 +32,11 @@ export function makeJoke(data) {
   p.innerHTML = data.value;
 
   let upd = document.createElement('time');
-  let hours = Math.floor((new Date - new Date(data.created_at))/3600000);
+  let hours = Math.floor((new Date - new Date(data.updated_at))/3600000);
   upd.classList = 'joke-upd';
   upd.innerHTML = `Last update: ${hours} hours ago`;
 
+  joke.appendChild(heart);
   joke.appendChild(link);
   joke.appendChild(p);
   joke.appendChild(upd);
@@ -40,4 +47,4 @@ export function makeJoke(data) {
     cats.innerHTML = data.categories;
     joke.appendChild(cats);
   }
-}
+};
