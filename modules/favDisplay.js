@@ -8,7 +8,8 @@ export function makeFavJoke(data) {
   };
 
   let joke = document.createElement('article');
-  joke.classList = 'joke fav'
+  joke.classList = 'joke joke-fav';
+  joke.id = data.id;
   joke = favPlace.insertBefore(joke, favPlace.firstChild);
 
   let heart = document.createElement('button');
@@ -27,7 +28,7 @@ export function makeFavJoke(data) {
   link.appendChild(a);
 
   let p = document.createElement('p');
-  p.classList = 'joke-text';
+  p.classList = 'joke-text-fav';
   p.innerHTML = data.value;
 
   let upd = document.createElement('time');

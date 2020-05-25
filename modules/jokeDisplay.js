@@ -10,7 +10,7 @@ export function makeJoke(data) {
   };
 
   let joke = document.createElement('article');
-  joke.classList = 'joke'
+  joke.classList = 'joke';
   joke = jokePlace.insertBefore(joke, jokePlace.firstChild);
 
   let heart = document.createElement('button');

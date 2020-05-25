@@ -1,3 +1,5 @@
+import { getJokeByLink } from './jokeGet.js';
+
 export function toggleFavourites(event) {
 
   let heart = event.target;
@@ -12,12 +14,13 @@ export function toggleFavourites(event) {
 
 function addFavourite(id, link) {
   localStorage.setItem(id, link);
+  getJokeByLink(link);
   console.log(id, 'added');
 };
 
 function removeFavourite(id) {
   localStorage.removeItem(id);
-  console.log(id, 'removed');
+  document.getElementById(id).remove();
 };
 
 // localStorage.clear();
