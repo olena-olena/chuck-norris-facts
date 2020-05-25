@@ -1,4 +1,4 @@
-import { makeJoke } from './makeJoke.js';
+import { makeJoke } from './jokeDisplay.js';
 
 function getRandomJoke() {
   fetch('https://api.chucknorris.io/jokes/random')

@@ -1,5 +1,5 @@
 import { jokePlace } from '../main.js';
-import { toggleFavourites } from './favourites.js';
+import { toggleFavourites } from './favToggle.js';
 
 export function makeJoke(data) {
 

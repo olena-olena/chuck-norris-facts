@@ -1,4 +1,4 @@
-import { getRandomJoke, getSearchJoke, getCategoryJoke } from './getJokes.js';
+import { getRandomJoke, getSearchJoke, getCategoryJoke } from './jokeGet.js';
 import { jokePlace } from '../main.js';
 
 export function formSubmit(event) {
