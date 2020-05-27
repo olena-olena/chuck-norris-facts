@@ -16,7 +16,7 @@ for (const radio of document.getElementsByClassName('radio')) {
 };
 
 if (localStorage.length > 0) {
-  console.log(localStorage.length);
+  // console.log(localStorage.length);
   for (let i = 0; i < localStorage.length; i++) {
     let id = localStorage.key(i);
     let link = localStorage.getItem(id);
